@@ -1,0 +1,13 @@
+variable "project" {}
+variable "env" {}
+variable "app_name" {}
+variable "desired_count" {}
+variable "alb" {}
+variable "cluster" {}
+variable "container_port" {}
+variable "ecs_sg_id" {}
+variable "ecr_repository_name" {}
+variable "private_subnet_1_id" {}
+variable "private_subnet_2_id" {}
+variable "target_group_blue_arn" {}
+variable "current_id" {}
