@@ -1,0 +1,4 @@
+project    = "example"
+env        = "dev"
+domain     = "example.com"
+sub_domain = "app" # app.example.com

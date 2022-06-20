@@ -1,9 +1,10 @@
 module "vpc" {
-  source         = "../../module/network"
-  project        = var.project
-  env            = var.env
-  domain         = var.domain
-  lb_logs_bucket = module.s3.lb_logs_bucket
+  source             = "../../module/network"
+  project            = var.project
+  env                = var.env
+  domain             = "${var.sub_domain}.${var.domain}"
+  data_source_domain = var.domain
+  lb_logs_bucket     = module.s3.lb_logs_bucket
 }
 
 module "ecr" {
