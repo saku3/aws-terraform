@@ -3,13 +3,7 @@ variable "env" {}
 variable "app_name" {}
 variable "repository" {}
 variable "codepipeline_bucket" {}
-variable "target_group_blue_name" {}
-variable "target_group_green_name" {}
-variable "lb_listener_https_arn" {}
-variable "lb_listener_test_https_arn" {}
 variable "ecr_repository_url" {}
-variable "ecs_cluster_name" {}
-variable "ecs_service_name" {}
 variable "source_version" {}
 variable "current_id" {}
 variable "ecs_task_role" {}
@@ -18,3 +12,5 @@ variable "ecs_task_log_group" {}
 variable "task_definition" {}
 variable "container_port" {}
 variable "codestarconnections_arn" {}
+variable "codedeploy_app" {}
+variable "codedeploy_deployment_group" {}

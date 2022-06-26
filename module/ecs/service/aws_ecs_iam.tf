@@ -32,3 +32,54 @@ data "aws_iam_policy_document" "ecs_task_assume_role" {
     }
   }
 }
+
+resource "aws_iam_role" "ecs_autoscaling_role" {
+  name               = "${var.project}-${var.env}-autoscaling-role"
+  assume_role_policy = data.aws_iam_policy_document.ecs_autoscaling_assume_role.json
+}
+
+resource "aws_iam_role_policy_attachment" "ecs_auto_scaling" {
+  role       = aws_iam_role.ecs_autoscaling_role.name
+  policy_arn = aws_iam_policy.ecs_autoscaling_policy.arn
+}
+
+data "aws_iam_policy_document" "ecs_autoscaling_assume_role" {
+  statement {
+    actions = [
+      "sts:AssumeRole",
+    ]
+
+    principals {
+      type = "Service"
+      identifiers = [
+        "application-autoscaling.amazonaws.com",
+      ]
+    }
+  }
+}
+
+resource "aws_iam_policy" "ecs_autoscaling_policy" {
+  name        = "${var.project}-ecs-autoscaling-policy"
+  description = "ecs autoscaling policy"
+
+  policy = <<EOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": [
+        "aplication-autoscaling:*",
+        "cloudwatch:DescribeAlarms",
+        "cloudwatch:PutMetricAlarm",
+        "ecs:DescribeServices",
+        "ecs:UpdateService"
+      ],
+      "Effect": "Allow",
+      "Resource": [
+        "*"
+      ]
+    }
+  ]
+}
+EOF
+}

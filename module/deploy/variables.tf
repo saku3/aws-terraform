@@ -1,0 +1,9 @@
+variable "project" {}
+variable "env" {}
+variable "app_name" {}
+variable "target_group_blue_name" {}
+variable "target_group_green_name" {}
+variable "lb_listener_https_arn" {}
+variable "lb_listener_test_https_arn" {}
+variable "ecs_cluster_name" {}
+variable "ecs_service_name" {}

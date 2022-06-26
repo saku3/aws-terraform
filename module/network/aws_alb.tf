@@ -118,7 +118,7 @@ resource "aws_lb_target_group" "tg_blue" {
 
   health_check {
     interval            = 60
-    path                = "/"
+    path                = "/healthcheck"
     port                = "traffic-port"
     protocol            = "HTTP"
     timeout             = 10
@@ -137,7 +137,7 @@ resource "aws_lb_target_group" "tg_green" {
 
   health_check {
     interval            = 60
-    path                = "/"
+    path                = "/healthcheck"
     port                = "traffic-port"
     protocol            = "HTTP"
     timeout             = 10
