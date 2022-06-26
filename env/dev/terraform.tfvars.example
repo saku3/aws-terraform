@@ -1,4 +1,5 @@
-project    = "example"
-env        = "dev"
-domain     = "example.com"
-sub_domain = "app" # app.example.com
+project                 = "example"
+env                     = "dev"
+domain                  = "example.com"
+sub_domain              = "app" # app.example.com
+codestarconnections_arn = "<codestarconnections arn>"

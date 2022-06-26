@@ -59,6 +59,7 @@ module "code" {
   ecs_task_log_group         = module.log.ecs_task_log_group
   task_definition            = module.ecs_service.task_definition
   container_port             = local.container_port
+  codestarconnections_arn    = var.codestarconnections_arn
 }
 
 

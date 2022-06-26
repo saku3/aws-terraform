@@ -63,7 +63,7 @@ resource "aws_codepipeline" "codepipeline" {
       version          = "1"
       output_artifacts = ["source"]
       configuration = {
-        ConnectionArn    = aws_codestarconnections_connection.connection.arn
+        ConnectionArn    = data.aws_codestarconnections_connection.connection.arn
         FullRepositoryId = var.repository
         BranchName       = var.source_version
       }

@@ -17,3 +17,4 @@ variable "ecs_task_execution_role" {}
 variable "ecs_task_log_group" {}
 variable "task_definition" {}
 variable "container_port" {}
+variable "codestarconnections_arn" {}
